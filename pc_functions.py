@@ -68,8 +68,8 @@ class Pc:
         cooler_budget=round(budget*0.04)
         return {"cpu_budget":cpu_budget, "gpu_budget":gpu_budget, "motherboard_budget":motherboard_budget, "ram_budget":ram_budget, "storage_budget":storage_budget, "psu_budget":psu_budget, "case_budget":case_budget, "cooler_budget":cooler_budget}
 
-    def custom_split(self,cpu_budget,gpu_budget,motherboard_budget,ram_budget,storage_budget,psu_budget,case_budget,cooler_budget):
-                return {"cpu_budget":cpu_budget, "gpu_budget":gpu_budget, "motherboard_budget":motherboard_budget, "ram_budget":ram_budget, "storage_budget":storage_budget, "psu_budget":psu_budget, "case_budget":case_budget, "cooler_budget":cooler_budget}
+    def custom_split(self,cpu_budget,gpu_budget,motherboard_budget,ram_budget,storage_budget,psu_budget,case_budget,cooler_budget):       
+        return {"cpu_budget":cpu_budget, "gpu_budget":gpu_budget, "motherboard_budget":motherboard_budget, "ram_budget":ram_budget, "storage_budget":storage_budget, "psu_budget":psu_budget, "case_budget":case_budget, "cooler_budget":cooler_budget}
 
 
     def build_pc(self,split):

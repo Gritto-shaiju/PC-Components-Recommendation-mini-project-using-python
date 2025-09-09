@@ -5,10 +5,10 @@ from datetime import datetime
 
 
 # asking for budget and preference from user
-print("gaming\nproductivity\nworkspace\nyour custom")
-preference = input("Enter your preference from above:")
+print("gaming:1\nproductivity:2\nworkspace:3\ncustom:4")
+preference = input("Enter your pc preference from above |1,2,3,4|:")
 obj1=pc_functions.Pc()
-if preference == "custom":
+if preference == "4":
     cpu_budget=int(input("Enter budget for cpu(processor):"))
     gpu_want=input("do you want separate graphics card [yes|no]:")
     if gpu_want == "yes":
@@ -37,8 +37,8 @@ else:
     else:
         cpu_cool="no"
     # exit program if gaming budget is low
-    if preference == "gaming" and budget<30000:
-        print(f"{preference} pc budget is low")
+    if preference == "1" and budget<30000:
+        print(f"Gaming pc budget is low")
         sys.exit()
     # calling functions to split budget and build pc recomentation
     split = select_budget_split.split_select(preference,cpu_cool,budget)
@@ -60,7 +60,7 @@ while (True):
 # writing recomentation in file
 current_date =datetime.now()
 file = open("pc_bill.txt","w")
-file.write(f" Your PC BUILD RECOMENTATION {" ".ljust(30)} Date:{current_date.date()}\n============================= {" ".ljust(30)} Time:{current_date.time().replace(microsecond=0)}\nNAME:{name.capitalize()}\nPHONE:{phone}\n\nCOMPONENTS\n")
+file.write(f" Your PC BUILD RECOMMENDATION {" ".ljust(30)} Date:{current_date.date()}\n============================= {" ".ljust(30)} Time:{current_date.time().replace(microsecond=0)}\nNAME:{name.capitalize()}\nPHONE:{phone}\n\nCOMPONENTS\n")
 total=0
 for category, item in build.items():
     for component_name, price in item.items():
