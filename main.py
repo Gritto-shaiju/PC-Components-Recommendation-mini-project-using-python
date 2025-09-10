@@ -71,8 +71,16 @@ for category, item in build.items():
 file.write(f"\nApprox total : {" ".ljust(50)} {str(total).rjust(6)}\nU can buy periferals for :{budget-total}")
 
 history_file = open("history.txt","a")
+if preference == "1":
+    preference = "gaming"
+elif preference == "2":
+    preference = "productivity"
+elif preference == "3":
+    preference = "workspace"
+elif preference == "4":
+    preference = "custom"
 
-history_file.write(f"\n\nDate:{current_date.date()}\nTime:{current_date.time().replace(microsecond=0)}\n\nName:{name}\nPhone:{phone}\nPreference:{preference}\nBudget:{budget}\n\n===============================================\n")
+history_file.write(f"\n\nDate:{current_date.date()}\nTime:{current_date.time().replace(microsecond=0)}\n\nName:{name}\nPhone:{phone}\nPreference:{preference.capitalize()}\nBudget:{budget}\n\n===============================================\n")
 
 print("PC BUILD RECOMENTATION IS IN FILE pc_bill.py")
 

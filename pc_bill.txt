@@ -1,17 +1,17 @@
- Your PC BUILD RECOMENTATION                                Date:2025-09-09
-=============================                                Time:10:46:38
-NAME:Gritto
-PHONE:7584758475
+ Your PC BUILD RECOMMENDATION                                Date:2025-09-10
+=============================                                Time:10:56:02
+NAME:Elza
+PHONE:3445656454
 
 COMPONENTS
-CPU          : Intel Core i3-12100                                  9750
-GPU          : AMD Radeon RX 7700 12GB GDDR6                       40000
-MOTHERBOARD  : ASRock Z690 Extreme WiFi 6E                         26000
-RAM          : Kingston FURY Renegade 32GB (2x16GB) DDR4 4000MHz   20000
-STORAGE      : Samsung 980 500GB NVMe                               4000
-PSU          : Corsair VS350                                        2000
-CASES        : Antec NX210 Mid Tower                                2700
-COOLERS      : Thermaltake UX200 ARGB                               2200
+CPU          : Intel Core i7-12700F                                21490
+GPU          : AMD Radeon RX 7600 8GB GDDR6                        30000
+MOTHERBOARD  : MSI MAG B660 Tomahawk WiFi DDR4                     14899
+RAM          : G.Skill Trident Z RGB 16GB (2x8GB) DDR4 3600MHz      7800
+STORAGE      : Sabrent Rocket 1TB NVMe                              8000
+PSU          : Corsair CX450                                        3500
+CASES        : Cooler Master MasterBox Q300L                        4000
+COOLERS      : Noctua NH-U12S Redux                                 5000
 
-Approx total :                                                    106650
-U can buy periferals for :5350
+Approx total :                                                     94689
+U can buy periferals for :5311
