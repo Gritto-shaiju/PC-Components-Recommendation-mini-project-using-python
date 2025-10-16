@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC recomendation</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+
+    .login-container {
+      width: 350px;
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .input-group input:focus {
+      border: 2px solid #2575fc;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      background: #2575fc;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background: #1a5fd3;
+    }
+
+    .options {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+
+    .options a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .options a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Build your PC</h2>
+    <form method="post">
+        {% csrf_token %}
+      <div class="input-group">
+        <label for="preference">Preference</label>
+        <select id="preference" name="preference" required>
+          <option value="" disabled selected>Select your preference</option>
+          <option value="gaming">Gaming</option>
+          <option value="productivity">Productivity</option>
+          <option value="workspace">Workspace</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="budget">Budget</label>
+          <input type="number" id="budget" name="budget" placeholder="Enter your budget" required>
+      </div>
+    <div class="input-group" id="premium-option" style="display: none;">
+        <label for="cpu_cooler">Do you want separate CPU cooler?</label>
+        <select id="cpu_cooler" name="cpu_cooler">
+            <option value="" disabled selected>Select an option</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </div>
+      <button type="submit" class="login-btn">Submit</button>
+
+    </form>
+
+<script>
+    const budgetInput = document.getElementById('budget');
+    const premiumOption = document.getElementById('premium-option');
+
+    budgetInput.addEventListener('input', function() {
+        const value = parseFloat(this.value);
+        if (value > 60000) {
+            premiumOption.style.display = 'block';
+        } else {
+            premiumOption.style.display = 'none';
+            // Reset dropdown if hidden
+            document.getElementById('premium').value = "";
+        }
+    });
+</script>
+</div>
+
+</body>
+</html>

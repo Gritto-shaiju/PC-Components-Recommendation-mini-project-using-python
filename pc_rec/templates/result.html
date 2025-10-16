@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PC Build</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f7e7ce, #fdfaf6);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 70%;
+            margin: 40px auto;
+            background: #fff;
+            padding: 25px 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 15px;
+            margin: 5px 0;
+        
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 25px 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            
+        }
+
+        th {
+            background-color: #e5e4e2;
+            color: #333;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        tr:hover {
+            background-color: #f1f7ff;
+        }
+
+        tfoot td {
+            font-weight: bold;
+            background: #f9e79f;
+            color: #222;
+        }
+
+        #total {
+            color: #c0392b;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> PC BUILD AS PER YOUR PREFERENCE AND BUDGET</h2>
+
+        <p>Date : {{date}}</p>
+        <p>Time : {{time}}</p>
+        <p>Preference : <b>{{preference.capitalize}}</b></p>
+        <p>Budget : <b>₹{{budget}}</b></p>
+
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Component</th>
+                    <th>Price (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category, details in build.items %}
+                <tr>
+                    <td>{{ category }}</td>
+                    <td>{{ details.Component }}</td>
+                    <td>{{ details.Price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td id="total"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script>
+        // Get table
+        var table = document.getElementById("myTable");
+        var sum = 0;
+
+        // Loop through all rows except header and total row
+        for (var i = 1; i < table.rows.length - 1; i++) {
+            let cellValue = table.rows[i].cells[2].innerText.trim();
+            if (cellValue !== "") {
+                let num = parseFloat(cellValue.replace(/,/g, ""));
+                if (!isNaN(num)) {
+                    sum += num;
+                }
+            }
+        }
+
+        // Display total with Indian number format
+        document.getElementById("total").innerText = sum.toLocaleString("en-IN");
+    </script>
+</body>
+</html>
